@@ -251,6 +251,8 @@ cache/
 
 # Quarto output
 # *.html
+.quarto/
+material/slides/vis_slides/
 *.pdf
 *.docx
 
