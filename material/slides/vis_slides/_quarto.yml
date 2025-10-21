@@ -1,0 +1,6 @@
+project:
+  title: "vis_slides"
+
+execute:
+  python: "/opt/conda/bin/python3"
+

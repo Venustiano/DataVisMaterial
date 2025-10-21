@@ -1,0 +1,125 @@
+---
+title: "My Quarto Slides"
+format: revealjs
+
+---
+
+## Welcome
+
+This is a Quarto slide!
+```{r}
+getwd()
+
+library(reticulate)
+use_python("/opt/conda/bin/python", required = TRUE)
+```
+
+---
+
+## Embedded Jupyter Code
+
+```{python, python.reticulate = FALSE}
+print("Hello from Jupyter!")
+```
+
+---
+
+## Embedded plot 1
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(mpg, wt)) + geom_point()
+```
+---
+
+## Embeded plot
+
+```{r}
+library(dviz.supp)
+library(forcats)
+# library(patchwork)
+library(lubridate)
+
+temps_long <- filter(ncdc_normals,
+                station_id %in% c(
+                  "USW00014819", # Chicago, IL 60638
+                  #"USC00516128", # Honolulu, HI 96813
+                  #"USW00027502", # Barrow, AK 99723, coldest point in the US
+                  "USC00042319", # Death Valley, CA 92328 hottest point in the US
+                  "USW00093107", # San Diego, CA 92145
+                  #"USC00427606"  # Salt Lake City, UT 84103
+                  "USW00012918" # Houston, TX 77061
+                )) %>%
+  mutate(location = fct_recode(factor(station_id),
+                               "Chicago" = "USW00014819",
+                               #"Honolulu, HI" = "USC00516128",
+                               #"Barrow, AK" = "USW00027502",
+                               "Death Valley" = "USC00042319",
+                               "San Diego" = "USW00093107",
+                               #"Salt Lake City, UT" = "USC00427606",
+                               "Houston" = "USW00012918")) %>%
+  mutate(location = factor(location, levels = c("Death Valley", "Houston", "San Diego", "Chicago")))
+
+# head(temps_long)
+
+ggplot(temps_long, aes(x = date, y = temperature, color = location)) +
+  geom_line(linewidth = 1) +
+  scale_x_date(name = "month", 
+               limits = c(ymd("0000-01-01"), ymd("0001-01-04")),
+               breaks = c(ymd("0000-01-01"), ymd("0000-04-01"), ymd("0000-07-01"),
+                          ymd("0000-10-01"), ymd("0001-01-01")),
+               labels = c("Jan", "Apr", "Jul", "Oct", "Jan"), expand = c(1/366, 0)) + 
+  scale_y_continuous(limits = c(19.9, 107),
+                     breaks = seq(20, 100, by = 20),
+                     name = "temperature (°F)") +
+  scale_color_OkabeIto(order = c(1:3, 7), name = NULL) +
+  theme_dviz_grid() +
+  theme(legend.title.align = 0.5)
+```
+
+---
+
+## Packages and data
+
+```{python, engine="python"}
+#| echo: true
+#| eval: true
+
+# Importing the packages
+import plotly.express as px
+import pandas as pd
+# Loading and displaying the data
+tableRes = pd.read_csv('../../data/exergamewf.csv')
+
+tableRes["Participants"] = "Participants" # in order to have a single root node
+tableRes["ppt"] = tableRes["iSubj"].astype(str)
+tableRes["strial"] = tableRes["trial"].astype(str)
+tableRes.head()
+
+```
+---
+
+## Treemap source code
+
+```{python, engine="python"}
+#| echo: true
+
+fig = px.treemap(tableRes, path=['Participants', 'iSubj', 'trial'], 
+                values='Age', color='medSpeed', 
+#               hover_data=['Age'],
+#               Try a diverging color scale,
+                color_continuous_scale=['#d7191c','#fdae61','#ffffbf',
+                '#abd9e9','#2c7bb6'] 
+                )
+fig.update_layout(
+    autosize=False,width=1000,height=600);
+
+```
+
+---
+### Treemap showing speed values per participant
+```{python, engine="python"}
+#| echo: true
+
+fig.show()
+```

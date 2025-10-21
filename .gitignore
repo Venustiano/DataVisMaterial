@@ -205,3 +205,62 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# R
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+
+# RStudio
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+.Rprofile
+.Rapp.history
+
+# Python (for reticulate/Quarto Python chunks)
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+.venv
+venv/
+ENV/
+env/
+pip-log.txt
+
+# Jupyter & Quarto
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+*_cache/
+cache/
+*.utf8.md
+*.knit.md
+
+# VS Code
+.vscode/
+
+# Quarto output
+# *.html
+*.pdf
+*.docx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and temp
+*.log
+*.tmp
+*.swp
+*.bak
+*.sqlite3
