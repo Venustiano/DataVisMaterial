@@ -9,20 +9,11 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/rocker-org/binder:latest
 
     steps:
       - uses: actions/checkout@v4
-
-      # Set up Miniconda and create environment
-      - name: Set up Miniconda
-        uses: conda-incubator/setup-miniconda@v3
-        with:
-          environment-file: environment.yml
-          activate-environment: datavismaterial
-          auto-update-conda: true
-          channels: conda-forge,defaults
-          use-mamba: true
-          auto-activate-base: false
 
       # Install Ubuntu system and LaTeX deps
       - name: Install Ubuntu and LaTeX packages
@@ -58,34 +49,31 @@ jobs:
             texlive-xetex \
             texlive-luatex \
             texlive-pictures \
-            latexmk
-
-      # - name: Install extra LaTeX packages
-      #   run: |
-      #     sudo tlmgr install preview standalone luatex85 pgfplots fancyhdr
-      
-      # ✅ Verify R is in PATH
-      - name: Check R installation
+            latexmk \
+            
+      # -----------------------------------------------------------
+      # 2️⃣ Verify the environment
+      # -----------------------------------------------------------
+      - name: Verify environment
         run: |
-          source activate datavismaterial
-          which R
+          echo "R version:"
           R --version
+          echo "Python version:"
+          /opt/conda/bin/python3 --version
+          echo "Quarto version:"
+          quarto --version
 
-      # Install Python packages from requirements.txt
-      - name: Install Python packages
+      # -----------------------------------------------------------
+      # 3️⃣ Install project dependencies
+      # -----------------------------------------------------------
+      - name: Install Python and R packages
         run: |
-          source activate datavismaterial
-          pip install -r requirements.txt
-        
-      # Install R packages from install.R
-      - name: Install R packages
-        run: |
-          source activate datavismaterial
+          /opt/conda/bin/pip install -r requirements.txt
           Rscript install.R
 
       # Setup Quarto CLI
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+      # - name: Set up Quarto
+      #   uses: quarto-dev/quarto-actions/setup@v2
 
       # Render the Quarto project
       - name: Render Quarto Project
