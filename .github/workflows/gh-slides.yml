@@ -19,7 +19,7 @@ jobs:
       # Install Ubuntu system and LaTeX deps
       - name: Install Ubuntu and LaTeX packages
         run: |
-          apt-get update && install -y --no-install-recommends \
+          apt-get update && apt-get install -y --no-install-recommends \
             libudunits2-dev \
             libpoppler-cpp-dev \
             gdal-bin \
