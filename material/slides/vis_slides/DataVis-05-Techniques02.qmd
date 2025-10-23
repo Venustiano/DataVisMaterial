@@ -1,6 +1,8 @@
 ---
 title: "My Quarto Slides"
-format: revealjs
+format: 
+  revealjs:
+    self-contained: true
 
 ---
 
