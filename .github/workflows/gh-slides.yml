@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/rocker-org/binder:latest
-      options: --user 1001  # 👈 prevents EACCES errors
+      options: --user root  
 
     steps:
       - uses: actions/checkout@v4
