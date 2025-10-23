@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/rocker-org/binder:latest
+      options: --user 1001  # 👈 prevents EACCES errors
 
     steps:
       - uses: actions/checkout@v4
@@ -18,8 +19,7 @@ jobs:
       # Install Ubuntu system and LaTeX deps
       - name: Install Ubuntu and LaTeX packages
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
+          sudo apt-get update && install -y --no-install-recommends \
             libudunits2-dev \
             libpoppler-cpp-dev \
             gdal-bin \
@@ -49,7 +49,8 @@ jobs:
             texlive-xetex \
             texlive-luatex \
             texlive-pictures \
-            latexmk \
+            latexmk && \
+          sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
             
       # -----------------------------------------------------------
       # 2️⃣ Verify the environment
