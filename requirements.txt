@@ -1,0 +1,17 @@
+seaborn
+altair
+plotly
+plotnine
+rpy2
+pandas
+scipy
+wordcloud
+cufflinks
+kaleido
+sqlalchemy_utils
+ipywidgets_jsonschema
+ipyfilechooser
+appdirs
+markdown
+python-dotenv
+groq
