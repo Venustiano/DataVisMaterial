@@ -1,4 +1,4 @@
-name: Render and Deploy Slides
+name: Deploy Slides
 
 on:
   push:
