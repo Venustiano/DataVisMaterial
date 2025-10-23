@@ -1,0 +1,62 @@
+[
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#welcome",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#welcome",
+    "title": "My Quarto Slides",
+    "section": "Welcome",
+    "text": "Welcome\nThis is a Quarto slide!\n\n\n[1] \"/__w/DataVisMaterial/DataVisMaterial/material/slides/vis_slides\"",
+    "crumbs": [
+      "My Quarto Slides"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#embedded-jupyter-code",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#embedded-jupyter-code",
+    "title": "My Quarto Slides",
+    "section": "Embedded Jupyter Code",
+    "text": "Embedded Jupyter Code\n\n\nHello from Jupyter!",
+    "crumbs": [
+      "My Quarto Slides"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#embedded-plot-1",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#embedded-plot-1",
+    "title": "My Quarto Slides",
+    "section": "Embedded plot 1",
+    "text": "Embedded plot 1",
+    "crumbs": [
+      "My Quarto Slides"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#embeded-plot",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#embeded-plot",
+    "title": "My Quarto Slides",
+    "section": "Embeded plot",
+    "text": "Embeded plot",
+    "crumbs": [
+      "My Quarto Slides"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#packages-and-data",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#packages-and-data",
+    "title": "My Quarto Slides",
+    "section": "Packages and data",
+    "text": "Packages and data\n\n# Importing the packages\nimport plotly.express as px\nimport pandas as pd\n# Loading and displaying the data\ntableRes = pd.read_csv('../../data/exergamewf.csv')\n\ntableRes[\"Participants\"] = \"Participants\" # in order to have a single root node\ntableRes[\"ppt\"] = tableRes[\"iSubj\"].astype(str)\ntableRes[\"strial\"] = tableRes[\"trial\"].astype(str)\ntableRes.head()\n\n   iSubj  trial  Age  Decade  ...  older  Participants  ppt  strial\n0      1      1   76       7  ...   True  Participants    1       1\n1      1      2   76       7  ...   True  Participants    1       2\n2      1      3   76       7  ...   True  Participants    1       3\n3      1      4   76       7  ...   True  Participants    1       4\n4      1      5   76       7  ...   True  Participants    1       5\n\n[5 rows x 19 columns]",
+    "crumbs": [
+      "My Quarto Slides"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#treemap-source-code",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#treemap-source-code",
+    "title": "My Quarto Slides",
+    "section": "Treemap source code",
+    "text": "Treemap source code\n\nfig = px.treemap(tableRes, path=['Participants', 'iSubj', 'trial'], \n                values='Age', color='medSpeed', \n#               hover_data=['Age'],\n#               Try a diverging color scale,\n                color_continuous_scale=['#d7191c','#fdae61','#ffffbf',\n                '#abd9e9','#2c7bb6'] \n                )\nfig.update_layout(\n    autosize=False,width=1000,height=600);",
+    "crumbs": [
+      "My Quarto Slides"
+    ]
+  }
+]
