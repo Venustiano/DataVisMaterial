@@ -6,6 +6,12 @@ project:
 execute:
   python: "/opt/conda/bin/python3"
 
+format:
+  revealjs:
+    include-in-header: 
+      - text: |
+          <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 website:
   sidebar:
     contents:
