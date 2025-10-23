@@ -21,6 +21,8 @@ jobs:
           activate-environment: datavismaterial
           auto-update-conda: true
           channels: conda-forge,defaults
+          use-mamba: true
+          auto-activate-base: false
 
       # Install Ubuntu system and LaTeX deps
       - name: Install Ubuntu and LaTeX packages
@@ -61,15 +63,24 @@ jobs:
       # - name: Install extra LaTeX packages
       #   run: |
       #     sudo tlmgr install preview standalone luatex85 pgfplots fancyhdr
+      
+      # ✅ Verify R is in PATH
+      - name: Check R installation
+        run: |
+          source activate datavismaterial
+          which R
+          R --version
 
       # Install Python packages from requirements.txt
       - name: Install Python packages
         run: |
+          source activate datavismaterial
           pip install -r requirements.txt
-
+        
       # Install R packages from install.R
       - name: Install R packages
         run: |
+          source activate datavismaterial
           Rscript install.R
 
       # Setup Quarto CLI
