@@ -1,5 +1,6 @@
 seaborn
 altair
+jupyter
 plotly
 plotnine
 rpy2
