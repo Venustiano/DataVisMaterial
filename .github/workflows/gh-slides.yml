@@ -56,11 +56,12 @@ jobs:
             texlive-xetex \
             texlive-luatex \
             texlive-pictures \
+            pgfplots \
             latexmk
 
-      - name: Install extra LaTeX packages
-        run: |
-          sudo tlmgr install preview standalone luatex85 pgfplots fancyhdr
+      # - name: Install extra LaTeX packages
+      #   run: |
+      #     sudo tlmgr install preview standalone luatex85 pgfplots fancyhdr
 
       # Install Python packages from requirements.txt
       - name: Install Python packages
