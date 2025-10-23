@@ -1,0 +1,12 @@
+project:
+  type: website
+  title: "vis_slides"
+  output-dir: _site
+
+execute:
+  python: "/opt/conda/bin/python3"
+
+website:
+  sidebar:
+    contents:
+      - material/slides/vis_slides/DataVis-05-Techniques02.qmd
