@@ -1,0 +1,89 @@
+name: Render and Deploy Slides
+
+on:
+  push:
+    tags:
+      - 'v*'
+    # branches: [ main ] # or your default branch
+  workflow_dispatch:
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Set up Miniconda and create environment
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          activate-environment: datavismaterial
+          auto-update-conda: true
+          channels: conda-forge,defaults
+
+      # Install Ubuntu system and LaTeX deps
+      - name: Install Ubuntu and LaTeX packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libudunits2-dev \
+            libpoppler-cpp-dev \
+            gdal-bin \
+            libgdal-dev \
+            libgeos-dev \
+            libproj-dev \
+            libmagick++-dev \
+            libxt6 \
+            libxtst6 \
+            libssl-dev \
+            libprotobuf-dev \
+            protobuf-compiler \
+            cmake \
+            libpoppler-cpp-dev \
+            poppler-utils \
+            ghostscript \
+            tk \
+            libxml2-dev \
+            libcurl4-openssl-dev \
+            liblzma-dev \
+            zlib1g-dev \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-xetex \
+            texlive-luatex \
+            texlive-pictures \
+            latexmk
+
+      - name: Install extra LaTeX packages
+        run: |
+          sudo tlmgr install preview standalone luatex85 pgfplots fancyhdr
+
+      # Install Python packages from requirements.txt
+      - name: Install Python packages
+        run: |
+          pip install -r requirements.txt
+
+      # Install R packages from install.R
+      - name: Install R packages
+        run: |
+          Rscript install.R
+
+      # Setup Quarto CLI
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # Render the Quarto project
+      - name: Render Quarto Project
+        run: |
+          quarto render material/slides/vis_slides
+
+      # Deploy to GitHub Pages
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
