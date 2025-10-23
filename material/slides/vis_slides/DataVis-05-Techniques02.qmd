@@ -3,7 +3,6 @@ title: "My Quarto Slides"
 format: 
   revealjs:
     self-contained: true
-
 ---
 
 ## Welcome
@@ -20,7 +19,7 @@ use_python("/opt/conda/bin/python", required = TRUE)
 
 ## Embedded Jupyter Code
 
-```{python, python.reticulate = FALSE}
+```{python}
 print("Hello from Jupyter!")
 ```
 
@@ -103,7 +102,7 @@ tableRes.head()
 
 ## Treemap source code
 
-```{python, engine="python"}
+```{python}
 #| echo: true
 
 fig = px.treemap(tableRes, path=['Participants', 'iSubj', 'trial'], 
@@ -120,7 +119,7 @@ fig.update_layout(
 
 ---
 ### Treemap showing speed values per participant
-```{python, engine="python"}
+```{python}
 #| echo: true
 
 fig.show()
