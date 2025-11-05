@@ -1,0 +1,16 @@
+{
+  "name": "datavizclaus",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "QUARTO_VERSION": "1.8.25"
+    }
+  },
+  "workspaceFolder": "/home/jovyan/work",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached",
+  "remoteUser": "jovyan",
+  "overrideCommand": false,
+  "portsAttributes": {
+  }
+}
