@@ -1,5 +1,5 @@
 {
-  "name": "datavizclaus",
+  "name": "datavismaterial",
   "build": {
     "dockerfile": "Dockerfile",
     "context": "..",
@@ -10,7 +10,12 @@
   "workspaceFolder": "/home/jovyan/work",
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached",
   "remoteUser": "jovyan",
-  "overrideCommand": false,
-  "portsAttributes": {
+  "features": {},
+  "forwardPorts": [],
+  "postCreateCommand": "",
+  "customizations": {
+    "vscode": {
+      "extensions": []
+    }
   }
 }
