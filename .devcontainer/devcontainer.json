@@ -15,7 +15,17 @@
   "postCreateCommand": "",
   "customizations": {
     "vscode": {
-      "extensions": []
+      "extensions": [
+        "alefragnani.project-manager",
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-vscode.live-server",
+        "posit.shiny",
+        "quarto.quarto",
+        "reditorsupport.r",
+        "posit.air-vscode",
+        "ms-azuretools.vscode-docker"
+      ]
     }
   }
 }
