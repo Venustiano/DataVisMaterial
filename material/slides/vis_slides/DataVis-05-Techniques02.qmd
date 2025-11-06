@@ -1,15 +1,23 @@
 ---
-title: "My Quarto Slides"
+title: "Practical Data Visualization"
+author: "Venustiano Soancatl Aguilar"
 format: 
   revealjs:
     self-contained: true
 ---
 
-## Welcome
+## Content
 
-This is a Quarto slide!
+- Parallel coordinates
+- Heatmaps
+- Scatter plots
+- Projections
+- Biplots
+- Treemaps
+
+
 ```{r}
-getwd()
+# getwd()
 
 library(reticulate)
 use_python("/opt/conda/bin/python", required = TRUE)
@@ -17,65 +25,97 @@ use_python("/opt/conda/bin/python", required = TRUE)
 
 ---
 
-## Embedded Jupyter Code
+## Parallel coordinates design {.smaller}
+
+![](./images/parallel_coordinates_expl.png){fig-align="center"}
+
+:::: {.columns }
+::: {.column width="50%"}
+- `row`: horizontal line
+- `column`: vertical line
+- `column-column correlation`: not easy to see
+:::
+::: {.column width="50%"}
+- `row`: skewed polyline
+- `column`: vertical line (permuted values)
+- `column-column correlation`: easy to see
+:::
+::::
+
+---
+
+## Parallel coordinates in plotly {.smaller}
+
+```{.python}
+wideTable["older"] = wideTable["older"].astype(int)           # exergame_parallel.ipynb
+fig = px.parallel_coordinates(wideTable[wideTable.columns[5:]],color='older')
+```
 
 ```{python}
-print("Hello from Jupyter!")
+import pandas as pd
+import plotly.express as px
+wideTable = pd.read_csv("../../data/exergamewf.csv")
+# https://plotly.com/python/colorscales/
+wideTable["older"] = wideTable["older"].astype(int)
+fig = px.parallel_coordinates(wideTable[wideTable.columns[5:]],color='older')
+# fig.update_layout(autosize=False,width=800,height=400)
+fig.show()  
 ```
+
+- Highlight all rows (lines) passing through selection
+- Drag and drop axis horizontally
+
 
 ---
 
-## Embedded plot 1
+## Parallel coordingates (ggplot)
 
 ```{r}
+#| echo: true
+#| code-line-numbers: "4-6"
 library(ggplot2)
-ggplot(mtcars, aes(mpg, wt)) + geom_point()
+library(data.table)
+longTable = fread('../../data/exergamelf2.csv')
+ggplot(data=longTable,aes(x=myVars,y=normVal)) +
+    geom_line(aes(group=idrow,colour=older),alpha=0.5) +
+    theme_bw()
 ```
+
 ---
 
-## Embeded plot
+## Heatmap
 
-```{r}
-library(dviz.supp)
-library(forcats)
-# library(patchwork)
-library(lubridate)
+- a rectangular tiling of a color-shaded data matrix
+- each tile can be as small as a pixel
+- limited by the size/resolution of the screen
+- color-shading functions are very sensitive to outliers
 
-temps_long <- filter(ncdc_normals,
-                station_id %in% c(
-                  "USW00014819", # Chicago, IL 60638
-                  #"USC00516128", # Honolulu, HI 96813
-                  #"USW00027502", # Barrow, AK 99723, coldest point in the US
-                  "USC00042319", # Death Valley, CA 92328 hottest point in the US
-                  "USW00093107", # San Diego, CA 92145
-                  #"USC00427606"  # Salt Lake City, UT 84103
-                  "USW00012918" # Houston, TX 77061
-                )) %>%
-  mutate(location = fct_recode(factor(station_id),
-                               "Chicago" = "USW00014819",
-                               #"Honolulu, HI" = "USC00516128",
-                               #"Barrow, AK" = "USW00027502",
-                               "Death Valley" = "USC00042319",
-                               "San Diego" = "USW00093107",
-                               #"Salt Lake City, UT" = "USC00427606",
-                               "Houston" = "USW00012918")) %>%
-  mutate(location = factor(location, levels = c("Death Valley", "Houston", "San Diego", "Chicago")))
+---
 
-# head(temps_long)
+## Measles heatmap {.scrollable}
 
-ggplot(temps_long, aes(x = date, y = temperature, color = location)) +
-  geom_line(linewidth = 1) +
-  scale_x_date(name = "month", 
-               limits = c(ymd("0000-01-01"), ymd("0001-01-04")),
-               breaks = c(ymd("0000-01-01"), ymd("0000-04-01"), ymd("0000-07-01"),
-                          ymd("0000-10-01"), ymd("0001-01-01")),
-               labels = c("Jan", "Apr", "Jul", "Oct", "Jan"), expand = c(1/366, 0)) + 
-  scale_y_continuous(limits = c(19.9, 107),
-                     breaks = seq(20, 100, by = 20),
-                     name = "temperature (°F)") +
-  scale_color_OkabeIto(order = c(1:3, 7), name = NULL) +
-  theme_dviz_grid() +
-  theme(legend.title.align = 0.5)
+```{python}
+import pandas as pd
+import plotly.graph_objects as go
+
+longTable = pd.read_csv('../../data/measlesCleaned.csv')
+longTable = longTable[longTable.year > 1920]
+# longTable.head()
+
+fig = go.Figure(data=go.Heatmap(
+        z=longTable['Measles_pop'],
+        x=longTable['year'],
+        y=longTable['State_Name'],
+        xgap=2,
+        ygap=2,
+        colorscale=['#ddebf8','#0c9dc5','#44ae57','#fcd43d','#e59e26','#e48925','#e95034','#da4b31','#cf472e']));
+
+fig.update_layout(
+    # title='',
+    # xaxis_nticks=40,
+    autosize=False,width=1000,height=900);
+
+fig.show()
 ```
 
 ---
