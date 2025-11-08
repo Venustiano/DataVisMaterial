@@ -68,7 +68,7 @@ fig.show()
 
 ---
 
-## Parallel coordingates (ggplot)
+## Parallel coordinates (ggplot)
 
 ```{r}
 #| echo: true
