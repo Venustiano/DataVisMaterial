@@ -353,11 +353,6 @@ class dsp_app(object):
 
 
 
-# def on_technique_change(self, change):
-#     with conversion.localconverter(my_converter):
-#         raw_schema = self.rugplot.rug_jsonschema(change['new'])
-#     self.fschema = json.loads(''.join(raw_schema))                    
-        
     def on_technique_change(self, change):
 
         with conversion.localconverter(my_converter):
