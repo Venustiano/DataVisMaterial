@@ -6,7 +6,6 @@
     "section": "Content",
     "text": "Content\n\nPreprocessing\n\nTable formats\nNormalization\n\nVisualization techniques\n\nDistributions\n\nHistograms\nVioling plots\nBox plots\n\n\nPreparing for publication",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -17,7 +16,6 @@
     "section": "Wide format",
     "text": "Wide format\n\nWide format: each subject/measure is its own column. Good for human-readable reports and some modeling functions.\n\nExample (wide):\n\n\n\n\n\n\n\n\nWide format\n\n\nEach repeated measure has its own column\n\n\nid\nmath\nenglish\n\n\n\n\n1\n90\n80\n\n\n2\n85\n88",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -28,7 +26,6 @@
     "section": "Long format",
     "text": "Long format\n\nLong (tidy) format: one observation per row, each variable is a column (key-value pair for repeated measures). Preferred for tidy data workflows (dplyr/tidyr, pandas melt).\n\n\n\n\n\n\n\n\n\nLong (tidy) format\n\n\nOne observation per row (id + subject -&gt; score)\n\n\nid\nsubject\nscore\n\n\n\n\n1\nmath\n90\n\n\n2\nmath\n85\n\n\n1\nenglish\n80\n\n\n2\nenglish\n88",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -39,7 +36,6 @@
     "section": "Exergame dataset 1",
     "text": "Exergame dataset 1\n\n\n\n\n\n\n\n\nFirst 10 rows of ../../data/exergamewf.csv (400x16), 40 participants\n\n\niSubj\ntrial\nAge\nDecade\nmedLrms51\nmedTI51\nmedK\nmeanK\nmedSpeed\nmedTIms51\nmedLcovD51\nmedLsd51\nmedLcov51\nmedLrmslD51\nmedLsdD51\nolder\n\n\n\n\n1\n1\n76\n7\n0.1894931\n0.5895294\n207.8009\n333.8615\n0.4887213\n0.8063448\n0.7447658\n0.02060208\n0.10868742\n1.2591721\n0.12906757\nTRUE\n\n\n1\n2\n76\n7\n0.2041523\n0.6973378\n223.2943\n319.6015\n0.5182781\n0.7754507\n0.5069439\n0.01644558\n0.07814028\n1.2633661\n0.10590245\nTRUE\n\n\n1\n3\n76\n7\n0.2173473\n0.7861308\n136.4008\n272.4609\n0.5841934\n0.5119019\n0.7061267\n0.04737236\n0.23646721\n0.7827964\n0.13391692\nTRUE\n\n\n1\n4\n76\n7\n0.1695694\n1.0206954\n162.0346\n289.9279\n0.5901514\n0.4163981\n0.7018032\n0.03901695\n0.26536092\n0.4875698\n0.10863750\nTRUE\n\n\n1\n5\n76\n7\n0.1707855\n0.7697467\n141.7677\n300.6258\n0.5517064\n0.5500293\n0.7531606\n0.03679774\n0.23590743\n0.6461938\n0.11960964\nTRUE\n\n\n1\n6\n76\n7\n0.1897457\n0.8447487\n135.1824\n278.8230\n0.5872821\n0.4505710\n0.6610873\n0.04081446\n0.24733843\n0.5800137\n0.11645546\nTRUE\n\n\n1\n7\n76\n7\n0.2233555\n0.7575400\n194.8239\n300.0683\n0.5530803\n0.7030368\n0.3478552\n0.01441217\n0.06038580\n1.1837717\n0.08177191\nTRUE\n\n\n1\n8\n76\n7\n0.2409097\n0.7414884\n226.1782\n324.9164\n0.5225434\n0.7732494\n0.2648009\n0.01068888\n0.04361652\n1.4287875\n0.06494999\nTRUE\n\n\n1\n9\n76\n7\n0.2347833\n0.6954884\n201.0556\n300.1745\n0.5300633\n0.7637143\n0.3943936\n0.01528410\n0.06477809\n1.3693579\n0.09403986\nTRUE\n\n\n1\n10\n76\n7\n0.2138546\n0.6711597\n203.4890\n298.0097\n0.5402634\n0.7405751\n0.4288368\n0.01493881\n0.06972877\n1.2463371\n0.09307257\nTRUE\n\n\n\n\n\n\n\nVisual Data Exploration for Balance Quantification in Real-Time During Exergaming",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -50,7 +46,6 @@
     "section": "exergamewt.csv into long format",
     "text": "exergamewt.csv into long format\nUsing AI:\n\nLaunch mybinder\nGo to the ./material/data folder and create a new python/R notebook\nUse the sparkle icon on cell toolbar to show the inline chat popover.\nUse the following prompts to generate the required code:\n\nWrite python and R code to see the columns of the exergamewf.csv file.\nConvert the &lt;exergamewf_data&gt; into a data.table and create a long format table using the ‘iSubj’, ‘trial’, ‘Age’, ‘Decade’ and ‘older’ columns as keys.\nPlot a histogram in ggplot of the ‘value’ column of the &lt;exergamewf_long&gt; table.",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -61,7 +56,6 @@
     "section": "Histogram",
     "text": "Histogram",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -72,7 +66,6 @@
     "section": "Normalization",
     "text": "Normalization\nStandard score:\n\\[\nx' = \\frac{x-\\mu}{\\sigma}\n\\]\nMin-Max Feature scaling:\n\\[\nx' = \\frac{x-min(x)}{max(x)-min(x)}\n\\]",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -83,7 +76,6 @@
     "section": "After min max normalization",
     "text": "After min max normalization",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -94,7 +86,6 @@
     "section": "Adding a distribution curve",
     "text": "Adding a distribution curve",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -105,7 +96,6 @@
     "section": "Overlapping distributions1",
     "text": "Overlapping distributions1\n\n\n\n\n\n\n\n\n\nSource: FDV Histograms-densityplots, (Fig7_11.. .ipynb)",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -116,7 +106,6 @@
     "section": "Ridgeline plot1",
     "text": "Ridgeline plot1\n\n\n\n\n\n\n\n\n\nSource: FDV Visualizing many distributions at once (Fig9_9... .ipynb)",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -127,7 +116,6 @@
     "section": "Meet the violin plot",
     "text": "Meet the violin plot",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -138,7 +126,6 @@
     "section": "A practical example",
     "text": "A practical example\nLoading the data:\n\n\n[1] \"/__w/DataVisMaterial/DataVisMaterial/material/slides/vis_slides\"\n\n\n\n# Importing the packages\nimport pandas as pd\n# Loading and displaying the data\nlf = pd.read_csv('../../data/exergamelf2.csv')\nlf.head()\n\n   idrow  Age  Decade  iSubj  trial     myVars     value   normVal  older\n0      0   20       2     21      1  medLrms51  0.294961  0.879737  False\n1      1   20       2     21      2  medLrms51  0.308855  0.926365  False\n2      2   20       2     21      3  medLrms51  0.285579  0.848253  False\n3      3   20       2     21      4  medLrms51  0.264111  0.776211  False\n4      4   20       2     21      5  medLrms51  0.308285  0.924452  False",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -149,7 +136,6 @@
     "section": "Creating violin plots",
     "text": "Creating violin plots\n\nimport plotly.express as px\n\nplot = px.violin(x=lf['myVars'], \n                 y=lf['normVal']\n  )\n\nplot.show()",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -160,7 +146,6 @@
     "section": "Overlapping violin plots",
     "text": "Overlapping violin plots\n\nplot = px.violin(x=lf['myVars'], \n                 y=lf['normVal'], \n                 color = lf[\"older\"]\n                )\n\n# make violins overlap and improve visibility\nplot.update_traces(opacity=0.6, \n                   width=0.8\n                  )             # semi-transparent + narrower violins\n\nplot.update_layout(violinmode='overlay')  # overlay (instead of side-by-side)\n\n# optional: rotate x labels if long category names\nplot.update_layout(xaxis_tickangle=45)\n\nplot.show()",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -171,7 +156,6 @@
     "section": "Overlapping violin plots",
     "text": "Overlapping violin plots",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -182,7 +166,6 @@
     "section": "Preparing for publication",
     "text": "Preparing for publication\n\nRemove unnecessary elements\n\nColor background\nAxis title\n\nSelect appropriate visual variables\n\ncolor\n\nAdd appropriate labels\nSave a high resolution image\nAvoid chart junk",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -193,7 +176,6 @@
     "section": "Colors",
     "text": "Colors\ncolorbrewer2.org",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -204,7 +186,6 @@
     "section": "High quality plots with LaTex",
     "text": "High quality plots with LaTex\n\ntikz\ntikzDevice (only in R)\nscripts/FDV/Fig2_3_temperature_plot_tikz.ipynb\nUseful for publications\nMatch plot and main text fonts\nCan include complex mathematical formulae\ntikzDevice works with r magic in jupyter notebooks",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -215,7 +196,6 @@
     "section": "The ggplot version",
     "text": "The ggplot version\n\np &lt;- ggplot(long_dt, \n            aes(x = variable, \n                y = value_norm, \n                fill = factor(older)\n              )\n            ) +\n  geom_violin(position = position_identity(),   # overlay violins at same x\n              alpha = 0.5, \n              width = 0.8, \n              trim = FALSE, \n              color = NA\n              ) +\n  labs(title = \"Overlapping violins of per-variable normalized values\",\n       x = \"variable\",\n       y = \"value (normalized 0-1)\",\n       fill = \"older\",\n       color = \"older\") +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -226,7 +206,6 @@
     "section": "ggplot -> LaTeX",
     "text": "ggplot -&gt; LaTeX\n\nlibrary(tikzDevice)   # assume installed\n\n# 1) Write a standalone .tex that contains the TikZ picture\ntikz(\"p_plot.tex\", \n  width = 6, \n  height = 4, \n  standAlone = TRUE\n)\n\n  print(p)   # print the ggplot object to the tikz device\n\ndev.off()\n\npng \n  2 \n\n# 2) Compile to PDF (requires a LaTeX engine available)\n\ntools::texi2dvi(\"p_plot.tex\", pdf = TRUE, clean = TRUE)",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -237,7 +216,6 @@
     "section": "TikzDevice result",
     "text": "TikzDevice result",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -248,7 +226,6 @@
     "section": "Published result1",
     "text": "Published result1\n\nSource: 10.1371/journal.pone.0170906.g006",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -259,7 +236,6 @@
     "section": "Boxplots",
     "text": "Boxplots\n\n\n\nplot = px.box(x=lf['myVars'], \n              y=lf['normVal'], \n              color = lf[\"older\"]\n            )\n\n\n\nMedian\nQuartiles 25% above and below the median\nWhiskers\nOutliers",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -270,7 +246,6 @@
     "section": "Would it be better to use boxplots?",
     "text": "Would it be better to use boxplots?\n\n\n\nSource: https://doi.org/10.1371/journal.pone.0170906.g004",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -281,7 +256,6 @@
     "section": "END",
     "text": "END",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -292,7 +266,6 @@
     "section": "Content",
     "text": "Content\n\nThe grammar of graphics\nThe major components of layers\nHands on practice\nVisualizations based on the gg approach",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -303,7 +276,6 @@
     "section": "The grammar of graphics",
     "text": "The grammar of graphics\n The grammar of graphics is about grammatical rules for creating perceivable graphs, or what we call graphics. (Leland Wilkinson, 2005).\n Take the analogy: good grammar is just the first step in creating a good sentence.",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -314,7 +286,6 @@
     "section": "An Object-Oriented Graphics System",
     "text": "An Object-Oriented Graphics System\n\nSpecification\n\nDATA : a set of data operations that create variables from datasets,\nTRANS : variable transformations (e.g., rank),\nSCALE : scale transformations (e.g., log),\nCOORD : a coordinate system (e.g., polar),\nELEMENT : graphs (e.g., points) and their aesthetic attributes (e.g., color),\nGUIDE : one or more guides (axes, legends, etc.).\n\nAssembly\nDisplay",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -325,7 +296,6 @@
     "section": "Graphics Pipeline",
     "text": "Graphics Pipeline\n\n\nAlgebra, the operations that allow us to combine variables and specify dimensions of graphs.\nScales involves the representation of variables on measured dimensions.\nStatistics covers the functions that allow graphs to change their appearance and representation schemes.\nGeometry covers the creation of geometric graphs from variables.\n\n\n\nFrom The Grammar of Graphics of Leland Wilkinson.",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -336,7 +306,6 @@
     "section": "A layered grammar of graphics",
     "text": "A layered grammar of graphics\n\n\n\n\n\n\n\nHadley Wickham (2010)",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -347,7 +316,6 @@
     "section": "Layers of the grammar of graphics",
     "text": "Layers of the grammar of graphics\n \n\n\nSource: Grammar of Graphics: Data Stories",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -358,7 +326,6 @@
     "section": "A layer is composed of",
     "text": "A layer is composed of\n\ndata and aesthetic mappings\na geometric object\na statistical transformation\na position adjustment",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -369,7 +336,6 @@
     "section": "1. Data and aesthetic mapping",
     "text": "1. Data and aesthetic mapping",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -380,7 +346,6 @@
     "section": "Mapping data to aesthetics",
     "text": "Mapping data to aesthetics\n\nLeft, continuous data to size and color\nRight, discrete data to shape and color",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -391,7 +356,6 @@
     "section": "Aestetic mappings",
     "text": "Aestetic mappings\n\n\n\n\n\n\n\nSource: A simple introduction to ggplot2",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -402,7 +366,6 @@
     "section": "2. Geometric objects",
     "text": "2. Geometric objects",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -413,7 +376,6 @@
     "section": "Geometric object",
     "text": "Geometric object\n\n\n\nSource: A simple introduction to ggplot2",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -424,7 +386,6 @@
     "section": "A sample of geometric objects",
     "text": "A sample of geometric objects\n\n\nGraphical primitives\n\ngeom_path()\ngeom_rect()\ngeom_poligon()\n\nOne variable\n\nDiscrete\n\ngeom_bar()\n\nContinuous\n\ngeom_histogram()\ngeom_density()\n\n\n\nTwo variables\n\nBoth continuous\n\ngeom_smooth()\ngeom_point()\n\nAt least one discrete\n\ngeom_count()\ngeom_jitter()\n\nOne continuous one discrete\n\ngeom_boxplot().\ngeom_violin()\n\n\n\nThree variables\n\ngeom_contour()\ngeom_tile()\ngeom_raster()\n\n\n\n\nSource: ggplot2: Elegant Graphics for Data Analysis (3e)",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -435,7 +396,6 @@
     "section": "Aesthetics mapping in practice",
     "text": "Aesthetics mapping in practice\n\nlibrary(dviz.supp)\nlibrary(forcats)\nlibrary(lubridate)\n\nif (!requireNamespace(\"gt\")) install.packages(\"gt\")\nlibrary(gt)\n\n\n\n\n\n\n\n\n\nDaily temperature data\n\n\nstation_id\nmonth\nday\ntemperature\nflag\ndate\nlocation\n\n\n\n\nUSC00042319\n01\n1\n51.0\nS\n0-01-01\nDeath Valley\n\n\nUSC00042319\n01\n2\n51.2\nS\n0-01-02\nDeath Valley\n\n\nUSC00042319\n01\n3\n51.3\nS\n0-01-03\nDeath Valley\n\n\nUSC00042319\n01\n4\n51.4\nS\n0-01-04\nDeath Valley\n\n\nUSC00042319\n01\n5\n51.6\nS\n0-01-05\nDeath Valley\n\n\nUSC00042319\n01\n6\n51.7\nS\n0-01-06\nDeath Valley\n\n\n\n\n\n\n\n\n\nSource: Fundamentals of Data Visualization",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -446,7 +406,6 @@
     "section": "Mapping and geometry",
     "text": "Mapping and geometry\np &lt;- ggplot(temps_long, \n            aes(x = date, \n                y = temperature, \n                color = location)\n            ) +\n  geom_line(linewidth = 1) +\n  scale_x_date(name = \"month\", \n               limits = c(ymd(\"0000-01-01\"), ymd(\"0001-01-04\")),\n               breaks = c(ymd(\"0000-01-01\"), ymd(\"0000-04-01\"), ymd(\"0000-07-01\"),\n                          ymd(\"0000-10-01\"), ymd(\"0001-01-01\")),\n               labels = c(\"Jan\", \"Apr\", \"Jul\", \"Oct\", \"Jan\"), expand = c(1/366, 0)) + \n  scale_y_continuous(limits = c(19.9, 107),\n                     breaks = seq(20, 100, by = 20),\n                     name = \"temperature (°F)\") +\n  scale_color_OkabeIto(order = c(1:3, 7), name = NULL) +\n  theme_dviz_grid() +\n  theme(legend.title.align = 0.5)\n\n\nCode: Fig2_3_temperature_plot.ipynb",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -457,7 +416,6 @@
     "section": "Temperature plot",
     "text": "Temperature plot",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -468,7 +426,6 @@
     "section": "Temperature plot using Seaborn",
     "text": "Temperature plot using Seaborn\n\n\n(np.float64(10957.0), np.float64(11326.0))\n\n\n(19.9, 107.0)",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -479,7 +436,6 @@
     "section": "Changing the geometry to heatmap",
     "text": "Changing the geometry to heatmap\nPreprocessing:\n\nCompute mean by location & month\nReplace month numbers with names\n\n\n\n\n\n\n\n\n\nMean temperature per month\n\n\nlocation\nmonth\nmean\n\n\n\n\nDeath Valley\nJan\n53.45161\n\n\nDeath Valley\nFeb\n59.94483\n\n\nDeath Valley\nMar\n68.44839\n\n\nDeath Valley\nApr\n76.29333\n\n\nDeath Valley\nMay\n86.60645\n\n\nDeath Valley\nJun\n95.54667",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -490,7 +446,6 @@
     "section": "Aesthetics mapping and geometry",
     "text": "Aesthetics mapping and geometry\np &lt;- ggplot(mean_temps, \n            aes(x = month, y = location, fill = mean)) + \n     geom_tile(width = .95, height = 0.95) +\n     scale_fill_viridis_c(option = \"B\", begin = 0.15, end = 0.98,\n                       name = \"temperature (°F)\") + \n     scale_y_discrete(name = NULL) +\n     ...",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -501,7 +456,6 @@
     "section": "3. Statistical transformations",
     "text": "3. Statistical transformations",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -512,7 +466,6 @@
     "section": "Contours",
     "text": "Contours\nPlot the blue jay relationship between body mass and head length.\n\n\n\n\n\n\n\n\n\nBlue jay dataset\n\n\nBirdID\nKnownSex\nBillDepth\nBillWidth\nBillLength\nHead\nMass\nSkull\nSex\n\n\n\n\n0000-00000\nM\n8.26\n9.21\n25.92\n56.58\n73.30\n30.66\n1\n\n\n1142-05901\nM\n8.54\n8.76\n24.99\n56.36\n75.10\n31.38\n1\n\n\n1142-05905\nM\n8.39\n8.78\n26.07\n57.32\n70.25\n31.25\n1\n\n\n1142-05907\nF\n7.78\n9.30\n23.48\n53.77\n65.50\n30.29\n0\n\n\n1142-05909\nM\n8.71\n9.84\n25.47\n57.32\n74.90\n31.85\n1\n\n\n1142-05911\nF\n7.28\n9.30\n22.25\n52.25\n63.90\n30.00\n0",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -523,7 +476,16 @@
     "section": "Contour plot, first version",
     "text": "Contour plot, first version\nblue_jays_base &lt;- ggplot(blue_jays, aes(Mass, Head)) + \n  scale_x_continuous(limits = c(57, 82), expand = c(0, 0), name = \"body mass (g)\") +\n  scale_y_continuous(limits = c(49, 61), expand = c(0, 0), name = \"head length (mm)\" ) +\n  theme_dviz_grid()\n\nblue_jays_base + \n  stat_density_2d(color = \"black\", size = 0.4, binwidth = 0.004) +\n  geom_point(color = \"black\", size = 1.5, alpha = 1/3)",
     "crumbs": [
-      "Start Slides",
+      "Data Visualization Techniques"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-04-TheGrammarOfGraphics.html#apply-some-shading",
+    "href": "material/slides/vis_slides/DataVis-04-TheGrammarOfGraphics.html#apply-some-shading",
+    "title": "Data Visualization Techniques",
+    "section": "Apply some shading",
+    "text": "Apply some shading\n\nblue_jays_base + \n  stat_density_2d(aes(fill = ..level..), geom = \"polygon\", color = \"black\", size = 0.15, binwidth = 0.004) +\n  geom_point(color = \"black\", size = 1.5, alpha = .4) +\n  scale_fill_gradient(low = \"grey95\", high = \"grey70\", guide = \"none\")\n\n\n\n\n\n\n\n\n\n\nSource: Fundamentals of Data Visualization, Fig18_8-10_contours.ipynb",
+    "crumbs": [
       "Data Visualization Techniques"
     ]
   },
@@ -534,7 +496,6 @@
     "section": "Grouping by sex",
     "text": "Grouping by sex\nblue_jays_base + \n  aes(color = KnownSex) +\n  stat_density_2d(size = 0.4, binwidth = 0.006) +\n  geom_point(size = 1.5, alpha = 0.7) +\n  ...",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -545,7 +506,6 @@
     "section": "Bins",
     "text": "Bins\nCommon applications:\n\nHistograms\nContours\nHeatmaps, aggregate values into grid cells to display intensity across two dimensions\nTemporal aggregation\nLarge-data intensity approximation",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -556,7 +516,6 @@
     "section": "Binning in mass spectrometry data",
     "text": "Binning in mass spectrometry data\n\n\nPrompt: Given a pandas dataframes with more than 200 million rows and an ‘mz’ column having more than 26 million unique values. How can the table be aggregated in such a way that we can create a heat map with mz on the vertical axis, time on the horizontal axis and intensity on the ‘z’ axis (color)?\n\n\n\n\nId\nTime\nscanid\nindex\nintensity\nmz\n\n\n\n\n1\n0.312346\n35\n376857\n9\n1548.487069\n\n\n1\n0.312346\n38\n2796\n9\n99.330436\n\n\n1\n0.312346\n38\n274380\n9\n979.736426\n\n\n1\n0.312346\n38\n313091\n9\n1179.351225\n\n\n1\n0.312346\n39\n322655\n9\n1231.517479\n\n\n…\n…\n…\n…\n…\n…\n\n\n6481\n691.492002\n916\n55969\n86\n200.037732\n\n\n6481\n691.492002\n916\n74584\n138\n243.540075\n\n\n6481\n691.492002\n916\n92301\n62\n288.915998\n\n\n6481\n691.492002\n916\n218889\n53\n725.852351\n\n\n6481\n691.492002\n917\n215210\n99\n710.363398\n\n\n\n\n\n\nNote:\nData excerpt from a mass spectrometry file.\nDataset contains 221,592,952 rows × 6 columns.",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -567,7 +526,6 @@
     "section": "AI Response",
     "text": "AI Response\nTo aggregate such a large Pandas DataFrame for creating a heatmap, you can use binning and grouping techniques to reduce the data into manageable chunks. Here’s a general approach to achieve this:\n\n# Step 1: Downsample or aggregate the data if necessary to avoid memory issues\n# Step 2: Create a pivot table (heatmap structure) by aggregating intensity\nheatmap_data = super_df.pivot_table(index=pd.cut(super_df['mz'], bins=mz_bins), \n                              columns=pd.cut(super_df['Time'], bins=time_bins), \n                              values='intensity', \n                              aggfunc='mean')  # You can change 'mean' to 'sum' if appropriate\n\n# Step 3: Apply a logarithmic transformation to highlight minority values\n# Step 4: Plot the heatmap\nplt.figure(figsize=(17, 10))  # Adjust figure size as needed\nsns.heatmap(heatmap_data_log, cmap='magma', norm=None,cbar_kws={'label': 'Log(Intensity)'})  \n# 'magma' gives more emphasis on high values\n\n# Step 6: Show the plot\nplt.show()",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -578,7 +536,6 @@
     "section": "Result",
     "text": "Result",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -589,7 +546,6 @@
     "section": "4. Position adjustment",
     "text": "4. Position adjustment",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -600,7 +556,6 @@
     "section": "Position Adjustments in ggplot2",
     "text": "Position Adjustments in ggplot2\n\n\n\n\n\n\n\n\nPosition Adjustments in ggplot2\n\n\nPosition\nDescription\nCommonly Used With\n\n\n\n\nidentity\nNo adjustment — geoms are placed exactly where data specifies.\ngeom_point(), geom_bar()\n\n\nstack\nStacks elements vertically along the y-axis.\ngeom_bar(), geom_area()\n\n\nfill\nLike 'stack', but scales bars to show proportions (fills to 100%).\ngeom_bar(), geom_area()\n\n\ndodge\nPlaces overlapping objects side-by-side for comparison.\ngeom_bar(), geom_boxplot()\n\n\njitter\nAdds small random variation to reduce overplotting.\ngeom_point()\n\n\nnudge\nMoves text or labels slightly to improve readability.\ngeom_text(), geom_label()",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -611,7 +566,6 @@
     "section": "Using jitter to deal with occlusion",
     "text": "Using jitter to deal with occlusion\n\n\n\n\n\n\n\n\n\n\n\nSource: Fundamentals of Data Visualization, Fig1-3_jitter.ipynb",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -622,7 +576,6 @@
     "section": "Partial transparency",
     "text": "Partial transparency",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -633,7 +586,6 @@
     "section": "Jitter",
     "text": "Jitter",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -644,7 +596,6 @@
     "section": "The facets layer",
     "text": "The facets layer\n\nFaceting = splitting a dataset into subsets and drawing the same plot design for each subset.\nIt’s a declarative way to show conditional relationships: “plot y vs x for each level of variable z”.\nBenefits: compares patterns across groups while keeping scales and geoms consistent.\nThe row and column variables must be categorical.",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -655,7 +606,6 @@
     "section": "Violin plots example",
     "text": "Violin plots example\n\n\n\npenguins.csv",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -666,7 +616,6 @@
     "section": "Heatmap facets example",
     "text": "Heatmap facets example\n\n\n\nSource: https://doi.org/10.1016/j.gaitpost.2017.12.015",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -677,7 +626,6 @@
     "section": "Coodinate systems",
     "text": "Coodinate systems\n\nIn the Grammar of Graphics, the coordinate system defines how data coordinates are mapped to the 2D plane of the plot.\nIt determines:\n\nThe axes (orientation and scaling)\nThe shape of geometric objects\nThe relationships between x and y aesthetics",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -688,7 +636,6 @@
     "section": "Importance of coordinate systems",
     "text": "Importance of coordinate systems\n\nThey control how data is drawn, not what data is shown.\nChanging coordinates can:\n\nFlip, stretch, or transform plots\nReveal patterns not visible in the default Cartesian system\nSupport specialized visualizations (like polar plots)",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -699,7 +646,6 @@
     "section": "Common Coordinate Systems",
     "text": "Common Coordinate Systems\n\n\n\n\n\n\n\n\nCommon Coordinate Systems in ggplot2\n\n\nFunction\nDescription\n\n\n\n\ncoord_cartesian()\nDefault Cartesian coordinates; standard x-y axes.\n\n\ncoord_flip()\nSwaps x and y axes — useful for horizontal bar plots.\n\n\ncoord_fixed()\nEnsures fixed aspect ratio between x and y units.\n\n\ncoord_polar()\nConverts Cartesian to polar coordinates (e.g., pie charts).\n\n\ncoord_quickmap()\nApproximates a Mercator projection — great for maps.\n\n\ncoord_trans()\nApplies a mathematical transformation to axes (e.g., log scale).",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -710,7 +656,6 @@
     "section": "Example: Polar Coordinates",
     "text": "Example: Polar Coordinates\n\n\n\n\n\n\n\n\n\n\n\n\n\nSynthetic daily temperature data\ntime series -&gt; circular layout,\n\nThe x-axis (day of year) -&gt; angle.\n\nThe y-axis (temperature) -&gt; distance from center.\n\n\n\n\nThis type of visualization helps identify repeating trends —\nlike seasonal temperature variation — in a compact, intuitive way.",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -721,7 +666,6 @@
     "section": "RUG plot app",
     "text": "RUG plot app\nCreate facets, violin plots, tikz using:",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -732,7 +676,6 @@
     "section": "The Grammar o Graphics in python",
     "text": "The Grammar o Graphics in python\nplotnine",
     "crumbs": [
-      "Start Slides",
       "Data Visualization Techniques"
     ]
   },
@@ -814,69 +757,243 @@
     "text": "Plot"
   },
   {
-    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#welcome",
-    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#welcome",
-    "title": "My Quarto Slides",
-    "section": "Welcome",
-    "text": "Welcome\nThis is a Quarto slide!\n\n\n[1] \"/__w/DataVisMaterial/DataVisMaterial/material/slides/vis_slides\"",
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#content",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#content",
+    "title": "Practical Data Visualization",
+    "section": "Content",
+    "text": "Content\n\nParallel coordinates\nHeatmaps\nScatter plots\nProjections\nBiplots\nTreemaps",
     "crumbs": [
-      "Start Slides",
-      "My Quarto Slides"
+      "Practical Data Visualization"
     ]
   },
   {
-    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#embedded-jupyter-code",
-    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#embedded-jupyter-code",
-    "title": "My Quarto Slides",
-    "section": "Embedded Jupyter Code",
-    "text": "Embedded Jupyter Code\n\n\nHello from Jupyter!",
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#parallel-coordinates-design",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#parallel-coordinates-design",
+    "title": "Practical Data Visualization",
+    "section": "Parallel coordinates design",
+    "text": "Parallel coordinates design\n\n\n\n\nrow: horizontal line\ncolumn: vertical line\ncolumn-column correlation: not easy to see\n\n\n\nrow: skewed polyline\ncolumn: vertical line (permuted values)\ncolumn-column correlation: easy to see",
     "crumbs": [
-      "Start Slides",
-      "My Quarto Slides"
+      "Practical Data Visualization"
     ]
   },
   {
-    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#embedded-plot-1",
-    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#embedded-plot-1",
-    "title": "My Quarto Slides",
-    "section": "Embedded plot 1",
-    "text": "Embedded plot 1",
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#parallel-coordinates-in-plotly",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#parallel-coordinates-in-plotly",
+    "title": "Practical Data Visualization",
+    "section": "Parallel coordinates in plotly",
+    "text": "Parallel coordinates in plotly\nwideTable[\"older\"] = wideTable[\"older\"].astype(int)           # exergame_parallel.ipynb\nfig = px.parallel_coordinates(wideTable[wideTable.columns[5:]],color='older')\n\n\n                                                    \n\n\n\nHighlight all rows (lines) passing through selection\nDrag and drop axis horizontally",
     "crumbs": [
-      "Start Slides",
-      "My Quarto Slides"
+      "Practical Data Visualization"
     ]
   },
   {
-    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#embeded-plot",
-    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#embeded-plot",
-    "title": "My Quarto Slides",
-    "section": "Embeded plot",
-    "text": "Embeded plot",
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#parallel-coordinates-ggplot",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#parallel-coordinates-ggplot",
+    "title": "Practical Data Visualization",
+    "section": "Parallel coordinates (ggplot)",
+    "text": "Parallel coordinates (ggplot)\n\nlibrary(ggplot2)\nlibrary(data.table)\nlongTable = fread('../../data/exergamelf2.csv')\nggplot(data=longTable,aes(x=myVars,y=normVal)) +\n    geom_line(aes(group=idrow,colour=older),alpha=0.5) +\n    theme_bw()",
     "crumbs": [
-      "Start Slides",
-      "My Quarto Slides"
+      "Practical Data Visualization"
     ]
   },
   {
-    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#packages-and-data",
-    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#packages-and-data",
-    "title": "My Quarto Slides",
-    "section": "Packages and data",
-    "text": "Packages and data\n\n# Importing the packages\nimport plotly.express as px\nimport pandas as pd\n# Loading and displaying the data\ntableRes = pd.read_csv('../../data/exergamewf.csv')\n\ntableRes[\"Participants\"] = \"Participants\" # in order to have a single root node\ntableRes[\"ppt\"] = tableRes[\"iSubj\"].astype(str)\ntableRes[\"strial\"] = tableRes[\"trial\"].astype(str)\ntableRes.head()\n\n   iSubj  trial  Age  Decade  ...  older  Participants  ppt  strial\n0      1      1   76       7  ...   True  Participants    1       1\n1      1      2   76       7  ...   True  Participants    1       2\n2      1      3   76       7  ...   True  Participants    1       3\n3      1      4   76       7  ...   True  Participants    1       4\n4      1      5   76       7  ...   True  Participants    1       5\n\n[5 rows x 19 columns]",
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#density-based-parallel-coordinates",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#density-based-parallel-coordinates",
+    "title": "Practical Data Visualization",
+    "section": "Density based parallel coordinates",
+    "text": "Density based parallel coordinates\n\n\n\n\n\n\n\nSource: Visualization Techniques for Parallel Coordinates",
     "crumbs": [
-      "Start Slides",
-      "My Quarto Slides"
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#bundled-parallel-coordinates",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#bundled-parallel-coordinates",
+    "title": "Practical Data Visualization",
+    "section": "Bundled parallel coordinates",
+    "text": "Bundled parallel coordinates\n\n\n\n\n\n\n\nSource: Visualization Techniques for Parallel Coordinates",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#heatmap",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#heatmap",
+    "title": "Practical Data Visualization",
+    "section": "Heatmap",
+    "text": "Heatmap\n\nA heatmap displays a matrix of values as colored tiles.\nEach tile can be as small as a pixel.\nTypically: x = horizontal variable, y = vertical variable, color = intensity/value (z).\nLimited by the size/resolution of the screen.\nColor-shading functions are very sensitive to outliers.\nUseful for showing density, correlations, spatiotemporal intensity, and aggregated summaries.",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#measles-heatmap-source-code",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#measles-heatmap-source-code",
+    "title": "Practical Data Visualization",
+    "section": "Measles heatmap source code",
+    "text": "Measles heatmap source code\nBattling Infectious Diseases\n\nimport pandas as pd\nimport plotly.graph_objects as go\n\nlongTable = pd.read_csv('../../data/measlesCleaned.csv')\nlongTable = longTable[longTable.year &gt; 1920]\n# longTable.head()\n\nfig = go.Figure(data=go.Heatmap(\n        z=longTable['Measles_pop'],\n        x=longTable['year'],\n        y=longTable['State_Name'],\n        xgap=2,\n        ygap=2,\n        colorscale=['#ddebf8','#0c9dc5','#44ae57','#fcd43d','#e59e26','#e48925','#e95034','#da4b31','#cf472e']));\n\nfig.update_layout(\n    # title='',\n    # xaxis_nticks=40,\n    autosize=False,width=1000,height=900);\n\n\n\nSource code: Measles_heatmap.ipynb",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#measles-heatmap",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#measles-heatmap",
+    "title": "Practical Data Visualization",
+    "section": "Measles heatmap",
+    "text": "Measles heatmap",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#shaded-matrix-from-loua-1873",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#shaded-matrix-from-loua-1873",
+    "title": "Practical Data Visualization",
+    "section": "Shaded matrix from Loua (1873)",
+    "text": "Shaded matrix from Loua (1873)\nSummary of 40 separate maps of Paris showing 20 districts.\n\n\n\n\n\n\n\nSource: The history of the cluster heatmap. Wilkinson and Friendly (2009).",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#scatterplots",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#scatterplots",
+    "title": "Practical Data Visualization",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nShow the relationship between two variables\nCan be used to visualize clusters\nCan be used to create matrix scatterplots\n\nWorks fine for a limited number of variables",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#speed-vs.-curvature",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#speed-vs.-curvature",
+    "title": "Practical Data Visualization",
+    "section": "Speed vs. Curvature",
+    "text": "Speed vs. Curvature\n\nimport pandas as pd\nimport plotly.express as px\n\ndf = pd.read_csv('../../data/exergamewf.csv')\n\n# Ensure 'older' is categorical so Plotly uses distinct symbols\ndf['older'] = df['older'].astype(str)\ndf['Age'] = pd.to_numeric(df['Age'], errors='coerce')\n\n\n# Create scatter plot\nfig = px.scatter(\n    df,\n    x='meanK',\n    y='medSpeed',\n    color='Age',          # continuous color; use discrete colormap if Age is categorical\n    symbol='older',       # different marker shapes per category in 'older'\n    height=500,\n    hover_data=['iSubj', 'trial'],  # optional extra hover info (adjust to your columns)\n    color_continuous_scale='viridis', # or 'magma', 'plasma', etc.\n    labels={'meanK': 'K', 'medSpeed': 'Speed', 'Age': 'Age', 'older': 'older'},\n)\n\nfig.update_traces(marker=dict(size=8, opacity=0.85));\nfig.update_layout(template='plotly_white', legend_title_text='older');",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#speed-vs.-curvature-1",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#speed-vs.-curvature-1",
+    "title": "Practical Data Visualization",
+    "section": "Speed vs. Curvature",
+    "text": "Speed vs. Curvature",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#matrix-scatterplot",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#matrix-scatterplot",
+    "title": "Practical Data Visualization",
+    "section": "Matrix scatterplot",
+    "text": "Matrix scatterplot",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#enhanced-matrix-scatterplot",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#enhanced-matrix-scatterplot",
+    "title": "Practical Data Visualization",
+    "section": "Enhanced matrix scatterplot",
+    "text": "Enhanced matrix scatterplot",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#projections",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#projections",
+    "title": "Practical Data Visualization",
+    "section": "Projections",
+    "text": "Projections\n\na row represents an n-dimensional point,\na row can be represented/mapped as a 2D point\npoint-to-point distance (in 2D) shows similarity of table rows (in nD)\ncoloring points by one attribute can show groups",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#projections-1",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#projections-1",
+    "title": "Practical Data Visualization",
+    "section": "Projections",
+    "text": "Projections",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#pca-projection-in-r",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#pca-projection-in-r",
+    "title": "Practical Data Visualization",
+    "section": "PCA projection in R",
+    "text": "PCA projection in R\n\nlibrary(ggfortify)\n\nwtable &lt;- read.csv(\"../../data/exergamewf.csv\")\n\n# pca\ntpca &lt;- prcomp(wtable[,5:15],scale=TRUE)\n\n# plot\nfig &lt;- autoplot(tpca, data = wtable, colour = 'older',\n                loadings = TRUE, loadings.colour = 'blue',\n                loadings.label = TRUE, \n                loadings.label.size = 5\n                ) +\n    theme_bw()",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#pca-projection",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#pca-projection",
+    "title": "Practical Data Visualization",
+    "section": "PCA projection",
+    "text": "PCA projection",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#treemaps",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#treemaps",
+    "title": "Practical Data Visualization",
+    "section": "Treemaps",
+    "text": "Treemaps\n\nA space-filling visualization that represents a hierarchy as nested rectangles.\n\nEach rectangle’s area encodes a quantitative value (part → whole).\nColor encodes a second variable (categorical or continuous).\nLabels identify nodes; interaction (hover/zoom) helps reading details.",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#anatomy-of-a-treemap",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#anatomy-of-a-treemap",
+    "title": "Practical Data Visualization",
+    "section": "Anatomy of a treemap",
+    "text": "Anatomy of a treemap\n\nRoot: full slide area (single root or implicit “all”).\nBranches: nested rectangles for hierarchical levels (path argument).\nLeaves: final rectangles sized by the chosen numeric value.\nColor: additional metric (e.g., rate, average) mapped to a color scale.",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#a-pet-shop-treemap",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#a-pet-shop-treemap",
+    "title": "Practical Data Visualization",
+    "section": "A pet shop treemap",
+    "text": "A pet shop treemap\n\n\n\n\n\n\n\nSource: Datavizcatalogue",
+    "crumbs": [
+      "Practical Data Visualization"
+    ]
+  },
+  {
+    "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#visualizing-the-exergame-data-as-a-treemap",
+    "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#visualizing-the-exergame-data-as-a-treemap",
+    "title": "Practical Data Visualization",
+    "section": "Visualizing the exergame data as a treemap",
+    "text": "Visualizing the exergame data as a treemap\n\n# Importing the packages\nimport plotly.express as px\nimport pandas as pd\n# Loading and displaying the data\ntableRes = pd.read_csv('../../data/exergamewf.csv')\n\ntableRes[\"Participants\"] = \"Participants\" # in order to have a single root node\ntableRes.head()\n\n   iSubj  trial  Age  Decade  ...  medLrmslD51  medLsdD51  older  Participants\n0      1      1   76       7  ...     1.259172   0.129068   True  Participants\n1      1      2   76       7  ...     1.263366   0.105902   True  Participants\n2      1      3   76       7  ...     0.782796   0.133917   True  Participants\n3      1      4   76       7  ...     0.487570   0.108637   True  Participants\n4      1      5   76       7  ...     0.646194   0.119610   True  Participants\n\n[5 rows x 17 columns]",
+    "crumbs": [
+      "Practical Data Visualization"
     ]
   },
   {
     "objectID": "material/slides/vis_slides/DataVis-05-Techniques02.html#treemap-source-code",
     "href": "material/slides/vis_slides/DataVis-05-Techniques02.html#treemap-source-code",
-    "title": "My Quarto Slides",
+    "title": "Practical Data Visualization",
     "section": "Treemap source code",
-    "text": "Treemap source code\n\nfig = px.treemap(tableRes, path=['Participants', 'iSubj', 'trial'], \n                values='Age', color='medSpeed', \n#               hover_data=['Age'],\n#               Try a diverging color scale,\n                color_continuous_scale=['#d7191c','#fdae61','#ffffbf',\n                '#abd9e9','#2c7bb6'] \n                )\nfig.update_layout(\n    autosize=False,width=1000,height=600);",
+    "text": "Treemap source code\n\nfig = px.treemap(tableRes, \n                    path=['Participants', 'iSubj', 'trial'], \n                    values='Age', \n                    color='medSpeed', \n                    color_continuous_scale=['#d7191c','#fdae61','#ffffbf','#abd9e9','#2c7bb6'] \n                )\n                \nfig.update_layout(\n                    autosize=False,\n                    width=1000,\n                    height=600\n                );",
     "crumbs": [
-      "Start Slides",
-      "My Quarto Slides"
+      "Practical Data Visualization"
     ]
   },
   {

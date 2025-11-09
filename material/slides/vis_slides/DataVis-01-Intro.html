@@ -1163,8 +1163,13 @@ Anscombe’s quartet — original datasets described by F. J. Anscombe (1973). I
 <li>find the phenomenon behind the data</li>
 <li>answer more vague (qualitative) questions</li>
 </ul>
-</div><hr>
-</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+
+
+
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -2412,7 +2417,7 @@ window.QuartoSupport = function () {
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/venustiano\.github\.io\/DataVisMaterial\/");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
