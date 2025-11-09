@@ -1,0 +1,31 @@
+{
+  "name": "datavismaterial",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "QUARTO_VERSION": "1.8.25"
+    }
+  },
+  "workspaceFolder": "/home/jovyan/work",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached",
+  "remoteUser": "jovyan",
+  "features": {},
+  "forwardPorts": [],
+  "postCreateCommand": "",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "alefragnani.project-manager",
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-vscode.live-server",
+        "posit.shiny",
+        "quarto.quarto",
+        "reditorsupport.r",
+        "posit.air-vscode",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}

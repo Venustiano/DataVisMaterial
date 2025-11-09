@@ -1,15 +1,23 @@
 ---
-title: "My Quarto Slides"
+title: "Practical Data Visualization"
+author: "Venustiano Soancatl Aguilar"
 format: 
   revealjs:
     self-contained: true
 ---
 
-## Welcome
+## Content
 
-This is a Quarto slide!
+- Parallel coordinates
+- Heatmaps
+- Scatter plots
+- Projections
+- Biplots
+- Treemaps
+
+
 ```{r}
-getwd()
+# getwd()
 
 library(reticulate)
 use_python("/opt/conda/bin/python", required = TRUE)
@@ -17,70 +25,285 @@ use_python("/opt/conda/bin/python", required = TRUE)
 
 ---
 
-## Embedded Jupyter Code
+## Parallel coordinates design {.smaller}
+
+![](./images/parallel_coordinates_expl.png){fig-align="center"}
+
+:::: {.columns }
+::: {.column width="50%"}
+- `row`: horizontal line
+- `column`: vertical line
+- `column-column correlation`: not easy to see
+:::
+::: {.column width="50%"}
+- `row`: skewed polyline
+- `column`: vertical line (permuted values)
+- `column-column correlation`: easy to see
+:::
+::::
+
+---
+
+## Parallel coordinates in plotly {.smaller}
+
+```{.python}
+wideTable["older"] = wideTable["older"].astype(int)           # exergame_parallel.ipynb
+fig = px.parallel_coordinates(wideTable[wideTable.columns[5:]],color='older')
+```
 
 ```{python}
-print("Hello from Jupyter!")
+import pandas as pd
+import plotly.express as px
+wideTable = pd.read_csv("../../data/exergamewf.csv")
+# https://plotly.com/python/colorscales/
+wideTable["older"] = wideTable["older"].astype(int)
+fig = px.parallel_coordinates(wideTable[wideTable.columns[5:]],color='older')
+# fig.update_layout(autosize=False,width=800,height=400)
+fig.show()  
 ```
+
+- Highlight all rows (lines) passing through selection
+- Drag and drop axis horizontally
+
 
 ---
 
-## Embedded plot 1
+## Parallel coordinates (ggplot)
 
 ```{r}
+#| echo: true
+#| code-line-numbers: "4-6"
 library(ggplot2)
-ggplot(mtcars, aes(mpg, wt)) + geom_point()
+library(data.table)
+longTable = fread('../../data/exergamelf2.csv')
+ggplot(data=longTable,aes(x=myVars,y=normVal)) +
+    geom_line(aes(group=idrow,colour=older),alpha=0.5) +
+    theme_bw()
 ```
+
 ---
 
-## Embeded plot
+## Density based parallel coordinates
+
+![](./images/Density_Based_Parallel_coordinates.png){fig-align="center" height="500px"}
+
+::: aside
+Source: [Visualization Techniques for Parallel
+Coordinates](https://elib.uni-stuttgart.de/bitstream/11682/6450/1/Thesis_JH_20130712_electronic_downsampled_web.pdf)
+:::
+
+---
+
+## Bundled parallel coordinates
+
+![](./images/Bundled_parallel_coordinates.png){fig-align="center" height="500px"}
+
+::: aside
+Source: [Visualization Techniques for Parallel
+Coordinates](https://elib.uni-stuttgart.de/bitstream/11682/6450/1/Thesis_JH_20130712_electronic_downsampled_web.pdf)
+:::
+
+
+---
+
+## Heatmap 
+
+- A heatmap displays a matrix of values as colored tiles.
+- Each tile can be as small as a pixel.
+- Typically: x = horizontal variable, y = vertical variable, color = intensity/value (z).
+- Limited by the size/resolution of the screen.
+- Color-shading functions are very sensitive to outliers.
+- Useful for showing density, correlations, spatiotemporal intensity, and aggregated summaries.
+
+---
+
+## Measles heatmap source code {.smaller}
+
+[Battling Infectious Diseases](https://graphics.wsj.com/infectious-diseases-and-vaccines/)
+
+```{python}
+#| echo: true
+#| code-line-numbers: "8-11"
+
+import pandas as pd
+import plotly.graph_objects as go
+
+longTable = pd.read_csv('../../data/measlesCleaned.csv')
+longTable = longTable[longTable.year > 1920]
+# longTable.head()
+
+fig = go.Figure(data=go.Heatmap(
+        z=longTable['Measles_pop'],
+        x=longTable['year'],
+        y=longTable['State_Name'],
+        xgap=2,
+        ygap=2,
+        colorscale=['#ddebf8','#0c9dc5','#44ae57','#fcd43d','#e59e26','#e48925','#e95034','#da4b31','#cf472e']));
+
+fig.update_layout(
+    # title='',
+    # xaxis_nticks=40,
+    autosize=False,width=1000,height=900);
+
+```
+
+::: aside
+Source code: `Measles_heatmap.ipynb`
+:::
+
+---
+
+## Measles heatmap {.scrollable}
+```{python}
+fig.show()
+```
+
+---
+
+## Shaded matrix from Loua (1873) {.smaller}
+
+Summary of 40 separate maps of Paris showing 20 districts.
+
+![](./images/Shaded_matrix_display_Loua%20_1873..png){fig-align="center" height="500px"}
+
+::: aside
+Source: The history of the cluster heatmap. Wilkinson and Friendly (2009).
+:::
+
+---
+
+## Scatterplots
+
+- Show the relationship between two variables
+- Can be used to visualize clusters
+- Can be used to create matrix scatterplots
+  -  Works fine for a limited number of variables
+
+---
+
+## Speed vs. Curvature
+
+```{python}
+#| echo: true
+#| code-line-numbers: "10-17"
+
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv('../../data/exergamewf.csv')
+
+# Ensure 'older' is categorical so Plotly uses distinct symbols
+df['older'] = df['older'].astype(str)
+df['Age'] = pd.to_numeric(df['Age'], errors='coerce')
+
+
+# Create scatter plot
+fig = px.scatter(
+    df,
+    x='meanK',
+    y='medSpeed',
+    color='Age',          # continuous color; use discrete colormap if Age is categorical
+    symbol='older',       # different marker shapes per category in 'older'
+    height=500,
+    hover_data=['iSubj', 'trial'],  # optional extra hover info (adjust to your columns)
+    color_continuous_scale='viridis', # or 'magma', 'plasma', etc.
+    labels={'meanK': 'K', 'medSpeed': 'Speed', 'Age': 'Age', 'older': 'older'},
+)
+
+fig.update_traces(marker=dict(size=8, opacity=0.85));
+fig.update_layout(template='plotly_white', legend_title_text='older');
+```
+
+---
+
+## Speed vs. Curvature
+
+```{python}
+fig.show()
+```
+
+---
+
+## Matrix scatterplot
+
+![](./images/matrix_scatterplot.png){fig-align="center"}
+
+## Enhanced matrix scatterplot
+
+![](./images/matrix_scatterplot_improved.png){fig-align="center"}
+
+---
+
+## Projections
+
+- a row represents an n-dimensional point,
+- a row can be represented/mapped as a 2D point
+- point-to-point distance (in 2D) shows similarity of table rows (in nD)
+- coloring points by one attribute can show groups
+
+## Projections
+
+![](./images/projections.png){fig-align="center"}
+
+---
+
+## PCA projection in R
 
 ```{r}
-library(dviz.supp)
-library(forcats)
-# library(patchwork)
-library(lubridate)
+#| echo: true
+library(ggfortify)
 
-temps_long <- filter(ncdc_normals,
-                station_id %in% c(
-                  "USW00014819", # Chicago, IL 60638
-                  #"USC00516128", # Honolulu, HI 96813
-                  #"USW00027502", # Barrow, AK 99723, coldest point in the US
-                  "USC00042319", # Death Valley, CA 92328 hottest point in the US
-                  "USW00093107", # San Diego, CA 92145
-                  #"USC00427606"  # Salt Lake City, UT 84103
-                  "USW00012918" # Houston, TX 77061
-                )) %>%
-  mutate(location = fct_recode(factor(station_id),
-                               "Chicago" = "USW00014819",
-                               #"Honolulu, HI" = "USC00516128",
-                               #"Barrow, AK" = "USW00027502",
-                               "Death Valley" = "USC00042319",
-                               "San Diego" = "USW00093107",
-                               #"Salt Lake City, UT" = "USC00427606",
-                               "Houston" = "USW00012918")) %>%
-  mutate(location = factor(location, levels = c("Death Valley", "Houston", "San Diego", "Chicago")))
+wtable <- read.csv("../../data/exergamewf.csv")
 
-# head(temps_long)
+# pca
+tpca <- prcomp(wtable[,5:15],scale=TRUE)
 
-ggplot(temps_long, aes(x = date, y = temperature, color = location)) +
-  geom_line(linewidth = 1) +
-  scale_x_date(name = "month", 
-               limits = c(ymd("0000-01-01"), ymd("0001-01-04")),
-               breaks = c(ymd("0000-01-01"), ymd("0000-04-01"), ymd("0000-07-01"),
-                          ymd("0000-10-01"), ymd("0001-01-01")),
-               labels = c("Jan", "Apr", "Jul", "Oct", "Jan"), expand = c(1/366, 0)) + 
-  scale_y_continuous(limits = c(19.9, 107),
-                     breaks = seq(20, 100, by = 20),
-                     name = "temperature (°F)") +
-  scale_color_OkabeIto(order = c(1:3, 7), name = NULL) +
-  theme_dviz_grid() +
-  theme(legend.title.align = 0.5)
+# plot
+fig <- autoplot(tpca, data = wtable, colour = 'older',
+                loadings = TRUE, loadings.colour = 'blue',
+     	        loadings.label = TRUE, 
+                loadings.label.size = 5
+                ) +
+	theme_bw()
 ```
 
 ---
 
-## Packages and data
+## PCA projection
+
+```{r}
+print(fig)
+```
+
+---
+
+## Treemaps
+
+- A space-filling visualization that represents a `hierarchy` as nested rectangles.  
+- Each rectangle's area encodes a quantitative value (part → whole).
+- Color encodes a second variable (categorical or continuous).
+- Labels identify nodes; interaction (hover/zoom) helps reading details.
+
+## Anatomy of a treemap
+
+- `Root`: full slide area (single root or implicit "all").
+- `Branches`: nested rectangles for hierarchical levels (path argument).
+- `Leaves`: final rectangles sized by the chosen numeric value.
+- `Color`: additional metric (e.g., rate, average) mapped to a color scale.
+
+## A pet shop treemap
+
+![](./images/pet_shop_treemap.png){fig-align="center"}
+
+::: aside
+Source: [Datavizcatalogue](https://datavizcatalogue.com/methods/treemap.html)
+:::
+
+
+
+---
+
+## Visualizing the exergame data as a treemap
 
 ```{python, engine="python"}
 #| echo: true
@@ -93,8 +316,6 @@ import pandas as pd
 tableRes = pd.read_csv('../../data/exergamewf.csv')
 
 tableRes["Participants"] = "Participants" # in order to have a single root node
-tableRes["ppt"] = tableRes["iSubj"].astype(str)
-tableRes["strial"] = tableRes["trial"].astype(str)
 tableRes.head()
 
 ```
@@ -105,16 +326,18 @@ tableRes.head()
 ```{python}
 #| echo: true
 
-fig = px.treemap(tableRes, path=['Participants', 'iSubj', 'trial'], 
-                values='Age', color='medSpeed', 
-#               hover_data=['Age'],
-#               Try a diverging color scale,
-                color_continuous_scale=['#d7191c','#fdae61','#ffffbf',
-                '#abd9e9','#2c7bb6'] 
+fig = px.treemap(tableRes, 
+                    path=['Participants', 'iSubj', 'trial'], 
+                    values='Age', 
+                    color='medSpeed', 
+                    color_continuous_scale=['#d7191c','#fdae61','#ffffbf','#abd9e9','#2c7bb6'] 
                 )
+                
 fig.update_layout(
-    autosize=False,width=1000,height=600);
-
+                    autosize=False,
+                    width=1000,
+                    height=600
+                );
 ```
 
 ---

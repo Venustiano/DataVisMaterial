@@ -16,3 +16,4 @@ appdirs
 markdown
 python-dotenv
 groq
+notebook-intelligence

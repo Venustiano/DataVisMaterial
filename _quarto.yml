@@ -18,15 +18,15 @@ format:
 
 website:
   title: "vis_slides"
-  page-navigation: true
-  site-url: https://venustiano.github.io/DataVisMaterial/
-  repo-url: https://github.com/Venustiano/DataVisMaterial
+  # page-navigation: true
+  # site-url: https://venustiano.github.io/DataVisMaterial/
+  # repo-url: https://github.com/Venustiano/DataVisMaterial
   sidebar:
     contents:
       - material/slides/vis_slides/DataVis-03-Techniques01.qmd
       - material/slides/vis_slides/DataVis-04-TheGrammarOfGraphics.qmd
       - material/slides/vis_slides/DataVis-05-Techniques02.qmd
-  navbar:
-    left:
-      - href: material/slides/vis_slides/DataVis-03-Techniques01.html
-        text: "Start Slides"
+  # navbar:
+  #   left:
+  #     - href: material/slides/vis_slides/DataVis-03-Techniques01.html
+  #       text: "Start Slides"
