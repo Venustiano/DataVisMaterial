@@ -23,6 +23,8 @@ format:
 <br><br>
 Take the analogy: `good grammar is just the first step in creating a good sentence`.
 
+---
+
 ## An Object-Oriented Graphics System {.smaller}
 
 1. Specification
@@ -623,7 +625,7 @@ blue_jays_base +
 
 ---
 
-### Apply some shading
+## Apply some shading
 
 
 ```{r}
@@ -766,6 +768,8 @@ plt.show()
 ---
 
 ## 4. Position adjustment
+
+---
 
 ## Position Adjustments in `ggplot2`
 
