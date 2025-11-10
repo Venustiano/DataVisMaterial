@@ -6,6 +6,7 @@ plotnine
 rpy2
 pandas
 scipy
+scikit-learn
 wordcloud
 cufflinks
 kaleido
