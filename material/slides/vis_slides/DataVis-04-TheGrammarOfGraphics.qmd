@@ -1113,7 +1113,7 @@ Create `facets`, `violin plots`, `tikz` using:  [![](https://mybinder.org/badge_
 
 ---
 
-## The Grammar o Graphics in python
+## The Grammar of Graphics in python
 
 [plotnine](https://mybinder.org/v2/gh/Venustiano/dvizpy/HEAD)
 
